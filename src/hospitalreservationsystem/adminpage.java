@@ -12,7 +12,7 @@ package hospitalreservationsystem;
 public class adminpage extends javax.swing.JFrame {
 
     /**
-     * Creates new form adminpage
+     * Creates new form adminpage is good
      */
     public adminpage() {
         initComponents();
