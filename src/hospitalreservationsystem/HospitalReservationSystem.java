@@ -5,6 +5,11 @@
  */
 package hospitalreservationsystem;
 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 /**
  *
  * @author Lenovo
@@ -21,4 +26,29 @@ public class HospitalReservationSystem {
             
     }
     
+}
+class dele{
+
+    public String del(String doctorusrname)
+        {
+         String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
+        String user="HAGER";
+        String password="HAGER";
+        String u=doctorusrname;
+        try{
+            Connection con = DriverManager.getConnection(url, user, password);
+            System.out.println("connected");
+            String sql="DELETE FROM HAGER.DOCTOR WHERE DOCTORUSERNAME='"+u+"'";
+            Statement st=con.createStatement();
+            st.executeUpdate(sql);
+            st.close();
+            con.close();
+
+        }
+        catch(SQLException e) {
+
+            System.out.println("error");
+        }
+               return doctorusrname;
+    }
 }

@@ -106,8 +106,13 @@ public class doctordeletingpage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deletedoctor(){
-        
-     checkdata();
+         checkdata();
+        dele d=new dele();
+        d.del(u);
+        if(flag2==1&&flag1==0)
+        {checklabel.setText("deleted successfully");
+        deletedusername.setText("");}
+     /*checkdata();
         String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
@@ -128,7 +133,7 @@ public class doctordeletingpage extends javax.swing.JFrame {
         }
         checklabel.setText("deleted successfully");
         deletedusername.setText("");
-        }
+        }*/
     }
     private void deletebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebuttonActionPerformed
         // TODO add your handling code here:
