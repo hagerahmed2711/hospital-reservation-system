@@ -178,7 +178,6 @@ public class editadminpasswordpage extends javax.swing.JFrame {
 
         }
         catch(SQLException e) {
-
             System.out.println("error");
         }
         loginpage p = new loginpage();
