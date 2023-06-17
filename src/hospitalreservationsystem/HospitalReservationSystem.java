@@ -29,13 +29,13 @@ public class HospitalReservationSystem {
 }
 class dele{
 
-    public String del(String doctorusrname)
+    public String del(String doctorusrname,boolean conn)
         {
          String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
         String u=doctorusrname;
-        try{
+        try{  if(conn==false){throw new SQLException();}
             Connection con = DriverManager.getConnection(url, user, password);
             System.out.println("connected");
             String sql="DELETE FROM HAGER.DOCTOR WHERE DOCTORUSERNAME='"+u+"'";

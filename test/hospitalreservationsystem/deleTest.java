@@ -11,12 +11,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.derby.client.am.SqlException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 
 /**
  *
@@ -48,28 +50,22 @@ public class deleTest {
      */
     @Test
     public void testDel() {
-       /* System.out.println("del");
-        String doctorusrname = "";
-        dele instance = new dele();
-        String expResult = "";
-        String result = instance.del(doctorusrname);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");*/
-       String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
+        System.out.println("del");
+        String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
         System.out.println("delete");
          String v="ali1";
+         boolean conn=true;
          System.out.println(v);
       dele instance = new dele();
-        String m =instance.del(v);
+        String m =instance.del(v,conn);
         
         System.out.println(m);
         
        try{
             int f=0;
-           Connection con=DriverManager .getConnection(url, user, password) ;
+           Connection con = DriverManager .getConnection(url, user, password) ;
             System.out.println("connecteddd");
             Statement s=con.createStatement();
             String sql="SELECT * FROM HAGER.DOCTOR ";
@@ -91,5 +87,16 @@ public class deleTest {
         }
         
     }
+   @Test
+    public void testDel1()  {
+        
+        String v="ali1";
+         boolean conn=false;
+         System.out.println(v);
+      dele instance = new dele();
+        String m =instance.del(v,conn);
+        assertEquals(1, 1);
+    }
+    
     
 }

@@ -108,7 +108,7 @@ public class doctordeletingpage extends javax.swing.JFrame {
     private void deletedoctor(){
          checkdata();
         dele d=new dele();
-        d.del(u);
+        d.del(u,true);
         if(flag2==1&&flag1==0)
         {checklabel.setText("deleted successfully");
         deletedusername.setText("");}

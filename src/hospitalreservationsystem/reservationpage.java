@@ -337,7 +337,7 @@ public class reservationpage extends javax.swing.JFrame {
         
     
     }
-    private String generatecode(){
+    /*private String generatecode(){
         String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
@@ -369,13 +369,13 @@ public class reservationpage extends javax.swing.JFrame {
         
         return code;
     
-    }
-     private void reservation(){
+    }*/
+    /* private void reservation(){
         checkappointment();
         String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
-        code=generatecode();
+         code=generatecode();
         if(flag1==0&&flag2==0&&flag3==0&&flag4==0){
             try{
             Connection con = DriverManager.getConnection(url, user, password);
@@ -397,7 +397,7 @@ public class reservationpage extends javax.swing.JFrame {
         
         }
     
-    }
+    }*/
     private void checkappointment(){
         checkdata();
        String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
@@ -616,7 +616,13 @@ public class reservationpage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        reservation();
+        checkappointment();
+        reservation r= new reservation();
+        code=r.reservation(true,flag1, flag2, flag3, flag4, time, day, month, year, patientusername, doctorusername);
+        if(flag1==0&&flag2==0&&flag3==0&&flag4==0){
+        reservation.setText("you have been successfully reserved");
+        reservation2.setText("your reservation code is "+code);
+        reservation3.setText("your appointment is at "+day+"/"+month+"/"+year+" at "+"time "+time);}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

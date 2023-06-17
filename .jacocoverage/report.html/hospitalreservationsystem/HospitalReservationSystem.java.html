@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HospitalReservationSystem.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;HospitalReservationSystem&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">hospitalreservationsystem</a> &gt; <span class="el_source">HospitalReservationSystem.java</span></div><h1>HospitalReservationSystem.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hospitalreservationsystem;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+/**
+ *
+ * @author Lenovo
+ */
+<span class="nc" id="L17">public class HospitalReservationSystem {</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+<span class="fc" id="L24">         homepage p= new homepage();</span>
+<span class="fc" id="L25">            p.setVisible(true);</span>
+            
+<span class="fc" id="L27">    }</span>
+    
+}
+<span class="fc" id="L30">class dele{</span>
+
+    public String del(String doctorusrname,boolean conn)
+        {
+<span class="fc" id="L34">         String url=&quot;jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE&quot;;</span>
+<span class="fc" id="L35">        String user=&quot;HAGER&quot;;</span>
+<span class="fc" id="L36">        String password=&quot;HAGER&quot;;</span>
+<span class="fc" id="L37">        String u=doctorusrname;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        try{  if(conn==false){throw new SQLException();}</span>
+<span class="fc" id="L39">            Connection con = DriverManager.getConnection(url, user, password);</span>
+<span class="fc" id="L40">            System.out.println(&quot;connected&quot;);</span>
+<span class="fc" id="L41">            String sql=&quot;DELETE FROM HAGER.DOCTOR WHERE DOCTORUSERNAME='&quot;+u+&quot;'&quot;;</span>
+<span class="fc" id="L42">            Statement st=con.createStatement();</span>
+<span class="fc" id="L43">            st.executeUpdate(sql);</span>
+<span class="fc" id="L44">            st.close();</span>
+<span class="fc" id="L45">            con.close();</span>
+
+        }
+<span class="fc" id="L48">        catch(SQLException e) {</span>
+
+<span class="fc" id="L50">            System.out.println(&quot;error&quot;);</span>
+<span class="fc" id="L51">        }</span>
+<span class="fc" id="L52">               return doctorusrname;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

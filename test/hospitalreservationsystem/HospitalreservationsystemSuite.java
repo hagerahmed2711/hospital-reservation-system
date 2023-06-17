@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  * @author river
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({hospitalreservationsystem.extendeddoctoraddingpageTest.class, hospitalreservationsystem.HospitalReservationSystemTest.class, hospitalreservationsystem.deleTest.class, hospitalreservationsystem.viewingappointmentspageTest.class, hospitalreservationsystem.doctorsviewingpageTest.class, hospitalreservationsystem.doctordeletingpageTest.class, hospitalreservationsystem.editpatientinformationpageTest.class, hospitalreservationsystem.editdoctorpersonalinformationpageTest.class, hospitalreservationsystem.homepageTest.class, hospitalreservationsystem.doctoraddingpageTest.class, hospitalreservationsystem.editdoctorpasswordpageTest.class, hospitalreservationsystem.registerationpageTest.class, hospitalreservationsystem.loginpageTest.class, hospitalreservationsystem.doctorpageTest.class, hospitalreservationsystem.editadminpasswordpageTest.class, hospitalreservationsystem.reservationpageTest.class, hospitalreservationsystem.patientpageTest.class, hospitalreservationsystem.adminpageTest.class})
+@Suite.SuiteClasses({extendeddoctoraddingpageTest.class, HospitalReservationSystemTest.class, deleTest.class, viewingappointmentspageTest.class, doctorsviewingpageTest.class, doctordeletingpageTest.class, editpatientinformationpageTest.class, editdoctorpersonalinformationpageTest.class, homepageTest.class, doctoraddingpageTest.class, editdoctorpasswordpageTest.class, registerationpageTest.class, loginpageTest.class, doctorpageTest.class, reservationTest.class, editadminpasswordpageTest.class, reservationpageTest.class, patientpageTest.class, adminpageTest.class})
 public class HospitalreservationsystemSuite {
 
     @BeforeClass
