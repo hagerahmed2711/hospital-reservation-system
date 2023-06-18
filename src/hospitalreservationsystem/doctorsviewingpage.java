@@ -148,7 +148,8 @@ public class doctorsviewingpage extends javax.swing.JFrame {
 
     private void viewbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewbuttonActionPerformed
         // TODO add your handling code here:
-        showdoctors();
+        DefaultTableModel model = new DoctorTable().getDoctorsData();
+        jTable1.setModel(model);
     }//GEN-LAST:event_viewbuttonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -168,44 +169,7 @@ public class doctorsviewingpage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void showdoctors(){
-        
-       String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
-        String user="HAGER";
-        String password="HAGER";
-       
-       
-        try{
-            Connection con = DriverManager.getConnection(url, user, password);
-            String s="SELECT * FROM HAGER.DOCTOR ";
-           // System.out.println("connected");
-           Statement st= con.createStatement();
-           ResultSet rs= null;
-           rs=st.executeQuery(s);
-           while(rs.next()){
-              name =  rs.getString("DOCTORNAME");
-               username =  rs.getString("DOCTORUSERNAME");
-                phonenumber =  rs.getString("DOCTORPHONENUMBER");
-                 address =  rs.getString("DOCTORADDRESS");
-                 specialization =  rs.getString("DOCTORSPECIALIZATION");
-                 gender =  rs.getString("DOCTORGENDER");
-                 String table[]={username,name,phonenumber,address,specialization,gender}; 
-                 DefaultTableModel h=(DefaultTableModel)jTable1.getModel(); 
-                 h.addRow(table);
-              
-           }
-           rs.close();
-           st.close();
-           con.close();
-         
-        }
-        catch(SQLException e) {
-            
-            System.out.println("error");
-        }
     
-    
-    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
