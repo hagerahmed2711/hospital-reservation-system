@@ -5,6 +5,8 @@
  */
 package hospitalreservationsystem;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -147,9 +149,14 @@ public class doctorsviewingpage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewbuttonActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel model = new DoctorTable().getDoctorsData();
-        jTable1.setModel(model);
+        try {
+            // TODO add your handling code here:
+            ConnectionManager con1 = new ConnectionManager();
+            DefaultTableModel model = new DoctorTable(con1).getDoctorsData();
+            jTable1.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(doctorsviewingpage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_viewbuttonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

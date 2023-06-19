@@ -15,8 +15,14 @@ public class DoctorTable {
     private final String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
     private final String user="HAGER";
     private final String password="HAGER";
-
-    public DefaultTableModel getDoctorsData(){
+    private final ConnectionManager connectionManager;
+    
+    public DoctorTable(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
+    }
+    
+    
+    public DefaultTableModel getDoctorsData() throws SQLException{
         DefaultTableModel model = new DefaultTableModel(
             new Object [][] {},
             new String [] {
@@ -42,7 +48,7 @@ public class DoctorTable {
         };
 
         try{
-            Connection con = DriverManager.getConnection(url, user, password);
+            Connection con = connectionManager.getConnection(url, user, password);
             String s="SELECT * FROM HAGER.DOCTOR ";
             Statement st= con.createStatement();
             ResultSet rs= null;
@@ -62,7 +68,7 @@ public class DoctorTable {
             con.close();
         }
         catch(SQLException e) {
-            System.out.println("error");
+            throw new SQLException("Error retrieving doctor data from database", e);
         }
         return model;
     }
