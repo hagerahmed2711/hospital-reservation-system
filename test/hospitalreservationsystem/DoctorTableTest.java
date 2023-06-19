@@ -74,16 +74,7 @@ public class DoctorTableTest {
         assertNotNull(doctorTable.getDoctorsData());
     }
 
-//    @Test (expected = SQLException.class)
-//    public void testGetDoctorsDataSQLException() throws SQLException {
-//        DriverManager dm = mock(DriverManager.class);
-//        //when(connection.createStatement()).thenReturn(statement);
-//        //when(statement.executeQuery(Mockito.anyString())).thenThrow(new SQLException("Error retrieving doctor data from database"));
-//        when(dm.getConnection(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenThrow(new SQLException("Error retrieving doctor data from database"));
-//        
-//        doctorTable.getDoctorsData();
-//    }
-//    
+
  @Test(expected = SQLException.class)
 public void testGetDoctorsDataSQLException() throws SQLException {
         // Given
