@@ -48,18 +48,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="checkusername" min="-2" pref="322" max="-2" attributes="0"/>
-                              <Component id="checkpassword" min="-2" pref="305" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="checkphonenumber" min="-2" pref="263" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="checkusername" min="-2" pref="322" max="-2" attributes="0"/>
+                      <Component id="checkpassword" min="-2" pref="305" max="-2" attributes="0"/>
+                      <Component id="checkphonenumber" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>

@@ -5,12 +5,21 @@
  */
 package hospitalreservationsystem;
 
+import java.sql.SQLException;
+import junit.framework.AssertionFailedError;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.ComparisonFailure;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.exceptions.misusing.NullInsteadOfMockException;
 
 /**
  *
@@ -37,22 +46,80 @@ public class editadminpasswordTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of editpassword method, of class editadminpassword.
-     */
+  
+    
     @Test
-    public void testEditpassword() {
+    public void testEditpassword1() {
+
         System.out.println("editpassword");
-        editadminpassword instance = new editadminpassword("Sheim234") ;
-        String expResult = "Sheim234";
+        editadminpassword instance = new editadminpassword("jona" ,"jona" ) ;
+        
+        
+        String expResult = "jona";
         String result = instance.editpassword();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
+        System.out.println(result);
+
+    }
+    
+    
+    @Test(expected=ComparisonFailure.class)
+    public void testEditpassword2() throws ComparisonFailure {
+
+        System.out.println("editpassword");
+        editadminpassword instance = new editadminpassword("" ,"" ) ;
+        
+        
+        String expResult = "jana";
+        String result = instance.editpassword();
+        assertEquals(expResult, result);
+        System.out.println(result);
+
+    }
+    
+    @Test(expected=ComparisonFailure.class)
+    public void testEditpassword3() throws ComparisonFailure {
+
+        System.out.println("editpassword");
+        editadminpassword instance = new editadminpassword("jana" ,"" ) ;
+        
+        
+        String expResult = "jana";
+        String result = instance.editpassword();
+        assertEquals(expResult, result);
+        System.out.println(result);
+
+    }
+    
+      @Test(expected=ComparisonFailure.class)
+    public void testEditpassword4() throws ComparisonFailure {
+
+        System.out.println("editpassword");
+        editadminpassword instance = new editadminpassword("","jana" ) ;
+        
+        
+        String expResult = "jana";
+        String result = instance.editpassword();
+        assertEquals(expResult, result);
+        System.out.println(result);
+
+    }
+ 
+      @Test(expected=ComparisonFailure.class)
+    public void testEditpassword5() throws ComparisonFailure {
+
+        System.out.println("editpassword");
+        editadminpassword instance = new editadminpassword("jana","jana1" ) ;
+        
+        
+        String expResult = "jana";
+        String result = instance.editpassword();
+        assertEquals(expResult, result);
+        System.out.println(result);
+
     }
 
-    /**
-     * Test of main method, of class editadminpassword.
-     */
-        
+    
+  
+
 }

@@ -12,6 +12,7 @@ import java.sql.*;
  */
 public class editadminpasswordpage extends javax.swing.JFrame {
 
+   private String password ; 
     /**
      * Creates new form editadminpasswordpage
      */
@@ -20,10 +21,18 @@ public class editadminpasswordpage extends javax.swing.JFrame {
     private static int flag1=0;
      private static int flag2=0;
       private static int flag3=0;
-    public editadminpasswordpage() {
-        initComponents();
-    }
+                
 
+     public editadminpasswordpage() {
+                initComponents();
+                
+
+    } 
+
+    
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,35 +171,22 @@ public class editadminpasswordpage extends javax.swing.JFrame {
         }  
     }
     private void editpassword(){
-         checkdata();
-        String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
-        String user="HAGER";
-        String password="HAGER";
-        if(flag3==1){
-        try{
-            Connection con = DriverManager.getConnection(url, user, password);
-            System.out.println("connected");
-            String sql="UPDATE HAGER.ADMIN SET ADMINPASSWORD='"+p+"'WHERE ADMINUSERNAME='ADMIN'";
-            Statement st=con.createStatement();
-            st.executeUpdate(sql);
-            st.close();
-            con.close();
-
-        }
-        catch(SQLException e) {
-            System.out.println("error");
-        }
+        checkdata() ; 
+  
+        editadminpassword a = new editadminpassword(this.p, this.cp ) ;
+        String word =  a.editpassword() ; 
+      
         loginpage p = new loginpage();
         p.setVisible(true);
         this.setVisible(false);}
     
-    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       editpassword();
+        editpassword() ; 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       
         adminpage p = new adminpage();
         p.setVisible(true);
         this.setVisible(false);
@@ -200,6 +196,7 @@ public class editadminpasswordpage extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+       
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

@@ -17,72 +17,94 @@ import java.sql.Statement;
  * @author Me
  */
 class editadminpassword {
-    private String newpassword ;
     
-    public editadminpassword(String newpassword) {
-        this.newpassword = newpassword;
+    private String p ;
+    private String cp ;
+     private int flag1 = 0 ;
+     private int flag2 = 0 ;
+     private int flag3 = 0 ;
+
+
+    public editadminpassword(String p , String cp ) {
+        this.p = p;
+        this.cp = cp ;
+        
     }
+    
+    
+     private void checkdata(){
+        
+        if(p.equals("")){
+            System.out.print("please enter your new password");
+            flag1=1;
+        }
+        if(cp.equals("")){
+             System.out.println("please re-enter your password");
+            flag2=1;
+        }
+        if(flag1==0&&flag2==0){
+        if(p.equals(cp)){
+            flag3=1;
+        }
+        else  System.out.print("please try re-entering your password");
+        } }  
+   
+    
+   
+    
     
     
     
     public String  editpassword(){
-        String check = " " ; 
+    checkdata() ;
+        
+        String check = "" ;
+
         String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
-        
+        if (flag1==0 &&flag2==0&&flag3==1) {
         try{
             Connection con = DriverManager.getConnection(url, user, password);
             System.out.println("connected");
-            String sql="UPDATE HAGER.ADMIN SET ADMINPASSWORD='"+this.newpassword+"'WHERE ADMINUSERNAME='ADMIN'";
+            String sql="UPDATE HAGER.ADMIN SET ADMINPASSWORD='"+this.p+"'WHERE ADMINUSERNAME='ADMIN'";
             Statement st=con.createStatement();
             st.executeUpdate(sql);
-            //st.close();
-            //con.close();
             
             
-            //Connection con = DriverManager.getConnection(url, user, password);
+            
             String s="SELECT ADMINPASSWORD FROM HAGER.ADMIN WHERE ADMINUSERNAME ='ADMIN'" ;
-           // System.out.println("connected");
            Statement st2= con.createStatement();
            ResultSet rs= null;
-           rs=st.executeQuery(s);
+           rs=st2.executeQuery(s);
            while(rs.next()){
-             check=  rs.getString("ADMINPASSWORD");
+             check = rs.getString("ADMINPASSWORD");
 
-              //System.out.println(check);
               
-
-           }
+              }
            
            
            rs.close();
            st.close();
-           con.close();
+           con.close(); 
+          throw new SQLException("check list not right");
+
            
         }
-
-
-        
         catch(SQLException e) {
+            
 
             System.out.println("error");
-        }
-        
-        return check ; 
+            
+        }}
+        else System.out.println("error"); 
+     
+   
+             return check ;}}
+    
+    
+    
+    
+    
+    
 
-    }
-    
-    
-    public static void main(String args[]) { 
-    editadminpassword a = new editadminpassword("Ahd1234") ;
-     System.out.println(a.editpassword()) ; 
-    
-    }
-    
-    
-    
-    
-    
-    
-}

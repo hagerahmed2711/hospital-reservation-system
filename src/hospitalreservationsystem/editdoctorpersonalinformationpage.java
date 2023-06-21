@@ -264,7 +264,7 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
         flag5=0;
         flag6=0;
         flag7=0;
-           confirmation.setText("");
+        confirmation.setText("");
         checkphonenumber.setText("");
          checkpassword.setText("");
          checkname.setText("");
@@ -279,6 +279,8 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
         if(dpn.equals("")){
             checkphonenumber.setText("please enter a valid phone number");
             flag1=1;
+            System.out.println(flag1); //done
+
         }
         if(dp.equals("")){
             checkpassword.setText("please choose a password");
@@ -287,10 +289,14 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
         if(dn.equals("")){
             checkname.setText("please enter doctor's name");
             flag3=1;
+                        System.out.println(flag3); //done
+
         }
         if(daddress.equals("")){
             checkaddress.setText("please enter doctor's address");
             flag4=1;
+            System.out.println(flag4); //done
+
         }
         
         if(du.equals("")){
@@ -323,7 +329,7 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
         }
         catch(SQLException e) {
             
-            System.out.println("error");
+            System.out.println("error1");
         }
         }
          if(flag6==0){
@@ -337,7 +343,7 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
            ResultSet rs= null;
            rs=st.executeQuery(s);
            while(rs.next()){
-             check=  rs.getString("DOCTORPASSWORD");
+             check=  rs.getString("DOCTORPASSWORD"); //to show password by f2,f5,f6
                System.out.println(check);
            }
            rs.close();
@@ -347,10 +353,11 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
         }
         catch(SQLException e) {
             
-            System.out.println("error");
+            System.out.println("error2");
         }
         if(check.equals(dp)){
            flag7=1;
+            System.out.println(flag7); //done
         }
         else
         {  checkpassword.setText("wrong password ,please try again");
@@ -359,13 +366,17 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
     }
     private void updatedoctorpersonalinformation(){
         checkdata();
-        String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
+        editdoctorpersonalinformation a = new editdoctorpersonalinformation(this.du, this.dp , this.dn , this.dpn ,this.daddress,this.dg) ; //String du , String dp ,String dpn ,String dn ,String daddress,String dg
+        a.updatedoctorpersonalinformation();
+        /*String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
         String password="HAGER";
-        String sql1="UPDATE HAGER.DOCTOR SET DOCTORNAME='"+dn+"'WHERE DOCTORUSERNAME='"+du+"'";
-        String sql2="UPDATE HAGER.DOCTOR SET DOCTORADDRESS='"+daddress+"'WHERE DOCTORUSERNAME='"+du+"'";
-        String sql3="UPDATE HAGER.DOCTOR SET DOCTORPHONENUMBER='"+dpn+"'WHERE DOCTORUSERNAME='"+du+"'";
-        String sql4="UPDATE HAGER.DOCTOR SET DOCTORGENDER='"+dg+"'WHERE DOCTORUSERNAME='"+du+"'";
+        
+         //String sql="UPDATE HAGER.ADMIN SET ADMINPASSWORD='"+this.newpassword+"'WHERE ADMINUSERNAME='ADMIN'";
+        String sql1="UPDATE HAGER.DOCTOR SET DOCTORNAME='"+this.dn+"'WHERE DOCTORUSERNAME='"+du+"'";
+        String sql2="UPDATE HAGER.DOCTOR SET DOCTORADDRESS='"+this.daddress+"'WHERE DOCTORUSERNAME='"+du+"'";
+        String sql3="UPDATE HAGER.DOCTOR SET DOCTORPHONENUMBER='"+this.dpn+"'WHERE DOCTORUSERNAME='"+du+"'";
+        String sql4="UPDATE HAGER.DOCTOR SET DOCTORGENDER='"+this.dg+"'WHERE DOCTORUSERNAME='"+du+"'";
         if(flag1==0&&flag2==0&&flag3==0&&flag4==0&&flag5==0&&flag6==1&&flag7==1){
              
         
@@ -378,17 +389,18 @@ public class editdoctorpersonalinformationpage extends javax.swing.JFrame {
             st.executeUpdate(sql4);
             st.close();
             con.close();
-
+            System.out.println("iam here");
         }
         catch(SQLException e) {
-
-            System.out.println("error");
-        }
+            
+            System.out.println("error3");
+        } 
+        */
         confirmation.setText("the information is updated successfully");
-        reset();
+        reset(); 
         }
     
-    }
+    
     private void reset(){
      name.setText("");
         address.setText("");
