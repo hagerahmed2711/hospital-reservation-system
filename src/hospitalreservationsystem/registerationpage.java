@@ -1,40 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hospitalreservationsystem;
 import java.sql.*;
-
-
-/**
- *
- * @author Lenovo
- */
 public class registerationpage extends javax.swing.JFrame {
-
-    /**
-     * Creates new form registerationpage
-     */
-    private static int flag1=0;
-    private static int flag2=0;
-   private static int flag3=0;
-    private static int flag4=0;
-    private static int flag5=0;
-    private static int flag6=0;
-   private static int flag7=0;
-   private static int flag8=0;
-    
-    private static String ppn="";
-    private static String pnid="";
-    private static String pp="";
-    private static String pn="";
-    private static String paddress="";
-    private static String pg="";
-    private static String pu="";
-    private static String pd="";
-    private static String pm="";
-    private static String py="";
+    public static int flag1=0;
+    public static int flag2=0;
+   public static int flag3=0;
+    public static int flag4=0;
+    public static int flag5=0;
+    public static int flag6=0;
+   public static int flag7=0;
+   public static int flag8=0;
+    public static String ppn="";
+    public static String pnid="";
+    public static String pp="";
+    public static String pn="";
+    public static String paddress="";
+    public static String pg="";
+    public static String pu="";
+    public static String pd="";
+    public static String pm="";
+    public static String py="";
      
 //ppn:patientphonenumber  
 //pnid:patient national id
@@ -468,7 +452,8 @@ public class registerationpage extends javax.swing.JFrame {
      
     }//GEN-LAST:event_monthslistActionPerformed
 
-    private void checkdata(){
+    
+   public void checkdata(){
         flag1=0;
         flag2=0;
         flag3=0;
@@ -573,7 +558,7 @@ public class registerationpage extends javax.swing.JFrame {
         yearslist.setSelectedIndex(0);
     }//GEN-LAST:event_resetbuttonActionPerformed
 
-    private void registeration(){
+  /* private void registeration(){
         checkdata();
        String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
@@ -596,10 +581,19 @@ public class registerationpage extends javax.swing.JFrame {
         loginpage p = new loginpage();
         p.setVisible(true);
          this.setVisible(false);}
-    }
+    }*/
     private void submitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbuttonActionPerformed
+        checkdata();
+       if( registeration.register(ppn ,pnid,pp, pn,paddress,pg,pu,pd,pm,py,true)){
        
-        registeration();
+        loginpage p = new loginpage();
+        p.setVisible(true);
+        this.setVisible(false);
+       }
+       else checkphonenumber.setText("error");
+        
+        
+        
     }//GEN-LAST:event_submitbuttonActionPerformed
 
     private void returntohomepagebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returntohomepagebuttonActionPerformed

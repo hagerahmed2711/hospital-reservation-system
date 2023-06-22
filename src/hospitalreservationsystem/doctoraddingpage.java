@@ -326,6 +326,22 @@ public class doctoraddingpage extends javax.swing.JFrame {
                    flag8=1;
                }
            }
+           s="SELECT PATIENTUSERNAME FROM HAGER.PATIENT" ;
+           rs=st.executeQuery(s);
+           while(rs.next()){
+             checku=  rs.getString("PATIENTUSERNAME");
+               if(checku.equals(du)){
+                   flag8=1;
+               }
+           }
+           s="SELECT ADMINUSERNAME FROM HAGER.ADMIN" ;
+           rs=st.executeQuery(s);
+           while(rs.next()){
+             checku=  rs.getString("ADMINUSERNAME");
+               if(checku.equals(du)){
+                   flag8=1;
+               }
+           }
            rs.close();
            st.close();
            con.close();
@@ -340,7 +356,7 @@ public class doctoraddingpage extends javax.swing.JFrame {
              checkusername.setText("please choose another username");
          }
     }
-    private void adding(){
+    /*private void adding(){
          checkdata();
         String url="jdbc:derby://localhost:1527/HOSPITALRESERVATIONSYSTEMDATABASE";
         String user="HAGER";
@@ -364,10 +380,17 @@ public class doctoraddingpage extends javax.swing.JFrame {
         p.setVisible(true);
          this.setVisible(false);}
     
-    }
+    }*/
     private void addbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbuttonActionPerformed
-        // TODO add your handling code here:
-        adding();
+        checkdata();
+        if ( addingdoctor.adding(dpn,  dnid ,  dp ,  dn,  daddress , dg , du ,  ds, true)){
+            
+        extendeddoctoraddingpage p = new extendeddoctoraddingpage();
+        p.setVisible(true);
+        this.setVisible(false);
+        
+        }
+        else checkpassword.setText("error");
        
         
     }//GEN-LAST:event_addbuttonActionPerformed
