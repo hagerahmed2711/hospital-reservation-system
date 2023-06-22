@@ -11,7 +11,7 @@ import java.sql.*;
  * @author Lenovo
  */
 public class editpatientinformationpage extends javax.swing.JFrame {
-
+ Edit_patient_information object = new  Edit_patient_information(pnp, pop, pu, paddress, ppn, pn, rootPaneCheckingEnabled);
     /**
      * Creates new form editpatientinformationpage
      */
@@ -368,7 +368,7 @@ public class editpatientinformationpage extends javax.swing.JFrame {
            ResultSet rs= null;
            rs=st.executeQuery(s);
            while(rs.next()){
-             checku=  rs.getString("PATIENTUSERNAME");
+             checku=  rs.getString("PATIENTUSERNAME");      
                if(checku.equals(pu)){
                    flag6=1;
                }
