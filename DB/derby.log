@@ -1,0 +1,16 @@
+Thu Jun 22 09:14:05 EET 2023 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Thu Jun 22 09:14:05 EET 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0188-e1f4-025f-0000446a6922 
+on database directory D:\education\3rd year computer\tests java\tests java first term\HospitalReservationSystem\DB\HOSPITALRESERVATIONSYSTEMDATABASE with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Loaded from file:/D:/Programing/netbeans/jdk/jdk1.8.0_111/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=D:\Programing\netbeans\jdk\jdk1.8.0_111\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=D:\education\3rd year computer\tests java\tests java first term\HospitalReservationSystem\DB
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Jun 22 18:23:07 EET 2023: Shutting down Derby engine

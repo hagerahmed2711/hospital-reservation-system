@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>addingdoctor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;HospitalReservationSystem&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">hospitalreservationsystem</a> &gt; <span class="el_source">addingdoctor.java</span></div><h1>addingdoctor.java</h1><pre class="source lang-java linenums">package hospitalreservationsystem;
+import java.sql.SQLException;
+<span class="fc" id="L3">public class addingdoctor {</span>
+    public static boolean adding(String dpn, String dnid , String dp , String dn, String daddress , String dg , String du , String ds, boolean connected){
+<span class="fc" id="L5">        addingdoctor h = new addingdoctor();</span>
+<span class="fc" id="L6">        doctoraddingpage p = new doctoraddingpage();</span>
+<span class="fc" id="L7">        boolean checking= false;</span>
+<span class="fc" id="L8">        checking=h.checkdata( dpn,  dnid ,  dp ,  dn,  daddress , dg , du ,  ds, true);</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        if(checking){</span>
+        try{
+<span class="fc bfc" id="L11" title="All 2 branches covered.">            if (connected==false){</span>
+<span class="fc" id="L12">                throw new SQLException();</span>
+            
+            }
+<span class="fc" id="L15">            databaseconnection.doctorinsertion(dpn, dnid, dp, dn, daddress, dg, du, ds);</span>
+
+         }
+<span class="fc" id="L18">          catch(SQLException e) {</span>
+
+<span class="fc" id="L20">            System.out.println(&quot;error&quot;);</span>
+<span class="fc" id="L21">            return false ;</span>
+<span class="fc" id="L22">          }</span>
+        
+<span class="fc" id="L24">          return true;</span>
+          }
+        
+         else {
+<span class="fc" id="L28">            return false;</span>
+        
+         }
+    
+     }
+    
+    public static boolean checkdata(String dpn, String dnid , String dp , String dn, String daddress , String dg , String du , String ds , boolean connected){
+<span class="fc" id="L35">        int flag1=0;</span>
+<span class="fc" id="L36">        int flag2=0;</span>
+<span class="fc" id="L37">        int flag3=0;</span>
+<span class="fc" id="L38">        int flag4=0;</span>
+<span class="fc" id="L39">        int flag5=0;</span>
+<span class="fc" id="L40">        int flag6=0;</span>
+<span class="fc" id="L41">        int flag7=0;</span>
+<span class="fc" id="L42">        int flag8=0;        </span>
+        
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if(dpn.equals(&quot;&quot;)){</span>
+            
+<span class="fc" id="L46">            flag1=1;</span>
+        }
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if(ds.equals(&quot;select&quot;)){</span>
+            
+<span class="fc" id="L50">            flag3=1;</span>
+        }
+        
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if(dnid.equals(&quot;&quot;)){</span>
+            
+<span class="fc" id="L55">            flag2=1;</span>
+        }
+        
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if(dp.equals(&quot;&quot;)){</span>
+            
+<span class="fc" id="L60">            flag4=1;</span>
+        }
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if(dn.equals(&quot;&quot;)){</span>
+            
+<span class="fc" id="L64">            flag5=1;</span>
+        }
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if(daddress.equals(&quot;&quot;)){</span>
+            
+<span class="fc" id="L68">            flag6=1;</span>
+        }
+        
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if(du.equals(&quot;&quot;)){</span>
+           
+<span class="fc" id="L73">            flag7=1;</span>
+        }
+<span class="fc" id="L75">        String checku=&quot;&quot;;</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">         if(flag7==0){</span>
+        try{
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (connected==false){</span>
+<span class="fc" id="L79">                throw new SQLException();</span>
+            
+            }
+<span class="fc" id="L82">            flag8=databaseconnection.isexist(du);</span>
+          
+        }
+<span class="fc" id="L85">        catch(SQLException e) {</span>
+            
+<span class="fc" id="L87">            System.out.println(&quot;error&quot;);</span>
+<span class="fc" id="L88">            return false;</span>
+<span class="fc" id="L89">        }</span>
+        }
+<span class="fc bfc" id="L91" title="All 16 branches covered.">         if(flag1==0&amp;&amp;flag2==0&amp;&amp;flag3==0&amp;&amp;flag4==0&amp;&amp;flag5==0&amp;&amp;flag6==0&amp;&amp;flag7==0&amp;&amp;flag8==0)</span>
+<span class="fc" id="L92">             return true;</span>
+         else 
+<span class="fc" id="L94">             return false;</span>
+    }
+  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
